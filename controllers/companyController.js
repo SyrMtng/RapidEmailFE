@@ -18,7 +18,7 @@ class CompanyController {
     };
 
     static async getAllInclude(req, res, next) {
-        const data = await Company.findAll({ include: Contact});
+        const data = await Company.findAll({ include: Contact });
         if (data) {
             res.status(200).json({
                 info: "find all success",
@@ -53,7 +53,7 @@ class CompanyController {
             include: [{
                 model: Contact,
                 as: 'contacts'
-              }]
+            }]
         });
         if (data) {
             res.status(200).json({

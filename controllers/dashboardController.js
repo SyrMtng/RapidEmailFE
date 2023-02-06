@@ -11,7 +11,7 @@ class DashboardController {
     };
 
     static async getMailbox(req, res, next) {
-        res.render('index', { title: 'Form Mailbox' });
+        res.render('sendemail', { title: 'Form Mailbox' });
     };
 
     static async postMailbox(req, res, next) {
@@ -57,7 +57,7 @@ class DashboardController {
         const mailbox = await request(dataMailbox);
         const mailboxSchedule = await request(dataMailboxSchedule);
 
-        res.status(200).render('index', {
+        res.status(200).render('home', {
             title: 'Dashbord',
             user: user,
             mailbox: mailbox,
@@ -73,7 +73,7 @@ class DashboardController {
 
         const datas = await request(data);
 
-        res.status(200).render('index', {
+        res.status(200).render('contact', {
             title: 'Form Company Contact',
             data: datas
         });
@@ -88,7 +88,7 @@ class DashboardController {
             json: true
         };
 
-        res.render('index', {
+        res.render('contact', {
             title: 'Form Create Template'
         });
     };
@@ -103,7 +103,7 @@ class DashboardController {
 
         const datas = await request(data);
 
-        res.render('index', {
+        res.render('contact', {
             title: 'Form Template Detail',
             data: datas
         });
