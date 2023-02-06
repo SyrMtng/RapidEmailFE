@@ -11,7 +11,17 @@ class DashboardController {
     };
 
     static async getMailbox(req, res, next) {
-        res.render('sendemail', { title: 'Form Mailbox' });
+        const data = {
+            uri: 'http://localhost:3000/company/include/contact',
+            json: true
+        };
+
+        const datas = await request(data);
+
+        res.status(200).render('sendemail', {
+            title: 'Form sendemail',
+            data: datas
+        });
     };
 
     static async postMailbox(req, res, next) {
